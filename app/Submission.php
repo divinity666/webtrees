@@ -35,38 +35,6 @@ class Submission extends GedcomRecord
     protected const ROUTE_NAME = SubmissionPage::class;
 
     /**
-     * A closure which will create a record from a database row.
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::submission()
-     *
-     * @param Tree $tree
-     *
-     * @return Closure
-     */
-    public static function rowMapper(Tree $tree): Closure
-    {
-        return Factory::submission()->mapper($tree);
-    }
-
-    /**
-     * Get an instance of a submission object. For single records,
-     * we just receive the XREF. For bulk records (such as lists
-     * and search results) we can receive the GEDCOM data as well.
-     *
-     * @param string      $xref
-     * @param Tree        $tree
-     * @param string|null $gedcom
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::submission()
-     *
-     * @return Submission|null
-     */
-    public static function getInstance(string $xref, Tree $tree, string $gedcom = null): ?Submission
-    {
-        return Factory::submission()->make($xref, $tree, $gedcom);
-    }
-
-    /**
      * Fetch data from the database
      *
      * @param string $xref

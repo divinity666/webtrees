@@ -22,12 +22,8 @@ namespace Fisharebest\Webtrees;
 use Closure;
 use Fisharebest\Flysystem\Adapter\ChrootAdapter;
 use Fisharebest\Webtrees\Contracts\UserInterface;
-use Fisharebest\Webtrees\Functions\FunctionsExport;
-use Fisharebest\Webtrees\Services\GedcomExportService;
 use Fisharebest\Webtrees\Services\PendingChangesService;
 use Illuminate\Database\Capsule\Manager as DB;
-use Illuminate\Database\Query\Expression;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use League\Flysystem\Filesystem;
@@ -370,22 +366,6 @@ class Tree
             DB::table('media_file')->where('m_file', '=', $this->id)->delete();
             DB::table('media')->where('m_file', '=', $this->id)->delete();
         }
-    }
-
-    /**
-     * Export the tree to a GEDCOM file
-     *
-     * @param resource $stream
-     *
-     * @return void
-     *
-     * @deprecated since 2.0.5.  Will be removed in 2.1.0
-     */
-    public function exportGedcom($stream): void
-    {
-        $gedcom_export_service = new GedcomExportService();
-
-        $gedcom_export_service->export($this, $stream);
     }
 
     /**

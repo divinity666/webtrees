@@ -109,20 +109,6 @@ class GedcomRecord
     }
 
     /**
-     * A closure which will create a record from a database row.
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::gedcomRecord()
-     *
-     * @param Tree $tree
-     *
-     * @return Closure
-     */
-    public static function rowMapper(Tree $tree): Closure
-    {
-        return Factory::gedcomRecord()->mapper($tree);
-    }
-
-    /**
      * A closure which will filter out private records.
      *
      * @return Closure
@@ -170,24 +156,6 @@ class GedcomRecord
         return static function (GedcomRecord $x, GedcomRecord $y) use ($direction): int {
             return $direction * ($x->lastChangeTimestamp() <=> $y->lastChangeTimestamp());
         };
-    }
-
-    /**
-     * Get an instance of a GedcomRecord object. For single records,
-     * we just receive the XREF. For bulk records (such as lists
-     * and search results) we can receive the GEDCOM data as well.
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::gedcomRecord()
-     *
-     * @param string      $xref
-     * @param Tree        $tree
-     * @param string|null $gedcom
-     *
-     * @return GedcomRecord|Individual|Family|Source|Repository|Media|Note|Submitter|null
-     */
-    public static function getInstance(string $xref, Tree $tree, string $gedcom = null)
-    {
-        return Factory::gedcomRecord()->make($xref, $tree, $gedcom);
     }
 
     /**

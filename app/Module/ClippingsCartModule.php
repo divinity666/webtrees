@@ -29,7 +29,6 @@ use Fisharebest\Webtrees\Exceptions\RepositoryNotFoundException;
 use Fisharebest\Webtrees\Exceptions\SourceNotFoundException;
 use Fisharebest\Webtrees\Factory;
 use Fisharebest\Webtrees\Family;
-use Fisharebest\Webtrees\Functions\FunctionsExport;
 use Fisharebest\Webtrees\Gedcom;
 use Fisharebest\Webtrees\GedcomRecord;
 use Fisharebest\Webtrees\Http\RequestHandlers\FamilyPage;
@@ -59,7 +58,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use RuntimeException;
-use stdClass;
 
 use function app;
 use function array_filter;

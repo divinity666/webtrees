@@ -34,38 +34,6 @@ class Note extends GedcomRecord
     protected const ROUTE_NAME = NotePage::class;
 
     /**
-     * A closure which will create a record from a database row.
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::note()
-     *
-     * @param Tree $tree
-     *
-     * @return Closure
-     */
-    public static function rowMapper(Tree $tree): Closure
-    {
-        return Factory::note()->mapper($tree);
-    }
-
-    /**
-     * Get an instance of a note object. For single records,
-     * we just receive the XREF. For bulk records (such as lists
-     * and search results) we can receive the GEDCOM data as well.
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::note()
-     *
-     * @param string      $xref
-     * @param Tree        $tree
-     * @param string|null $gedcom
-     *
-     * @return Note|null
-     */
-    public static function getInstance(string $xref, Tree $tree, string $gedcom = null): ?Note
-    {
-        return Factory::note()->make($xref, $tree, $gedcom);
-    }
-
-    /**
      * Get the text contents of the note
      *
      * @return string

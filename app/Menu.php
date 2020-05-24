@@ -63,23 +63,6 @@ class Menu
     }
 
     /**
-     * Render this menu using Bootstrap4 markup
-     *
-     * @return string
-     *
-     * @deprecated since 2.0.2.  Will be removed in 2.1.0
-     */
-    public function bootstrap4(): string
-    {
-        trigger_error(
-            'Menu::bootstrap4() is deprecated.  Use the view(components/menu-item) instead',
-            E_USER_DEPRECATED
-        );
-
-        return view('components/menu-item', ['menu' => $this]);
-    }
-
-    /**
      * Get the optional attributes.
      *
      * @return string[]

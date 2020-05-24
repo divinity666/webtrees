@@ -45,20 +45,6 @@ class Individual extends GedcomRecord
     private $estimated_death_date;
 
     /**
-     * A closure which will create a record from a database row.
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::individual()
-     *
-     * @param Tree $tree
-     *
-     * @return Closure
-     */
-    public static function rowMapper(Tree $tree): Closure
-    {
-        return Factory::individual()->mapper($tree);
-    }
-
-    /**
      * A closure which will compare individuals by birth date.
      *
      * @return Closure
@@ -80,24 +66,6 @@ class Individual extends GedcomRecord
         return static function (Individual $x, Individual $y): int {
             return Date::compare($x->getEstimatedBirthDate(), $y->getEstimatedBirthDate());
         };
-    }
-
-    /**
-     * Get an instance of an individual object. For single records,
-     * we just receive the XREF. For bulk records (such as lists
-     * and search results) we can receive the GEDCOM data as well.
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0 - Use Factory::individual()
-     *
-     * @param string      $xref
-     * @param Tree        $tree
-     * @param string|null $gedcom
-     *
-     * @return Individual|null
-     */
-    public static function getInstance(string $xref, Tree $tree, string $gedcom = null): ?Individual
-    {
-        return Factory::individual()->make($xref, $tree, $gedcom);
     }
 
     /**

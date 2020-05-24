@@ -384,16 +384,4 @@ class MediaFile
     {
         return $this->multimedia_file_refn;
     }
-
-    /**
-     * What file extension is used by this file?
-     *
-     * @return string
-     *
-     * @deprecated since 2.0.4.  Will be removed in 2.1.0
-     */
-    public function extension(): string
-    {
-        return pathinfo($this->multimedia_file_refn, PATHINFO_EXTENSION);
-    }
 }
